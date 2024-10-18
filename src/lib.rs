@@ -682,14 +682,6 @@ impl Environment {
 
     /// Get the most recent type of variable in environment.
     pub fn get(&self, var: &str) -> Option<Rc<Expr>> {
-        // let ty = self.bindings.get(var).and_then(|vec| vec.last());
-        // match ty {
-        //     Some(expr) => match &**expr {
-        //         Expr::Var(x) => self.get(x),
-        //         _ => Some(Rc::clone(expr)),
-        //     },
-        //     None => None,
-        // }
         self.bindings.get(var).and_then(|vec| vec.last()).cloned()
     }
 
